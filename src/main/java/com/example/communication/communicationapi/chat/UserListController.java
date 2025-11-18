@@ -17,7 +17,7 @@ public class UserListController {
 
     @GetMapping("getuserlist")
     public Map<String, String> userList(){
-        UserListController1();
+//        UserListController1();
         return userSessionMap;
     }
 
