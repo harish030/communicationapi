@@ -4,30 +4,30 @@ package com.example.communication.communicationapi.chat;
 
 public class ChatMessage {
 
-    private MessageType type;
-    private String content;
+    private String message;
+    private String receiver;
     private String sender;
 
-    public ChatMessage(String content, MessageType type, String sender) {
-        this.content = content;
-        this.type = type;
+    public ChatMessage(String message, String receiver, String sender) {
+        this.message = message;
+        this.receiver = receiver;
         this.sender = sender;
     }
 
-    public MessageType getType() {
-        return type;
+    public String getMessage() {
+        return message;
     }
 
-    public void setType(MessageType type) {
-        this.type = type;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getContent() {
-        return content;
+    public String getReceiver() {
+        return receiver;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     public String getSender() {
