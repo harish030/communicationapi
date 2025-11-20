@@ -22,12 +22,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        List<String> allowedOriginPatterns = new ArrayList<>();
-        allowedOriginPatterns.add("http://localhost:4200");
-        allowedOriginPatterns.add("https://harish030.github.io");
+
 
         registry.addEndpoint("/ws")
-                .setAllowedOriginPatterns(String.valueOf(allowedOriginPatterns))
+                .setAllowedOriginPatterns("http://localhost:4200","https://harish030.github.io")
                 .withSockJS();
     }
 
