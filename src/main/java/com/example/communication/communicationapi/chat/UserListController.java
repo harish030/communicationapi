@@ -12,7 +12,7 @@ import java.util.Map;
 import static com.example.communication.communicationapi.config.WebSocketEventListener.userSessionMap;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://harish030.github.io"})
 public class UserListController {
 
     @GetMapping("getuserlist")
