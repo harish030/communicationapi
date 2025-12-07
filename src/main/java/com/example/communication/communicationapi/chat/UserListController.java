@@ -24,7 +24,7 @@ public class UserListController {
     private void UserListController1(){
         RtcTokenBuilder2 token = new RtcTokenBuilder2();
         String result =
-                token.buildTokenWithUserAccount("48b5127bfa5e4dd582f08a1adcfd77f6", "c5e9589a20ca4fdd84579509518ca491", "har", "bubu", Role.ROLE_PUBLISHER, 3600, 3600);
+                token.buildTokenWithUserAccount("48b5127bfa5e4dd582f08a1adcfd77f6", "c5e9589a20ca4fdd84579509518ca491", "harish_hameed", "harish", Role.ROLE_PUBLISHER, 3600, 3600);
         System.out.printf("Token with uid: %s\n", result);
     }
 }
