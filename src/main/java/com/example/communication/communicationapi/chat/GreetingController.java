@@ -9,6 +9,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -19,6 +20,7 @@ public class GreetingController {
     @Autowired
     public SimpMessagingTemplate messagingTemplate;
 
+    String[] audioVideo = {"AUDIO","VIDEO"};
     @MessageMapping("/chatroom-list")
     @SendTo("/chat/chatrooms")
     public Map<String, String> chatRoomEntry() throws Exception {
@@ -35,7 +37,9 @@ public class GreetingController {
                     new ChatMessage(chatMessage.getMessage(),chatMessage.getReceiver(),chatMessage.getSender(),chatMessage.getCommunicationType(),chatMessage.getCommunicationRequestType(),"","","")
             );
         }
-        else if (Objects.equals(chatMessage.getCommunicationType(), "AUDIO")) {
+        else if (Arrays.stream(audioVideo).anyMatch((data)->
+            data.equals(chatMessage.getCommunicationType())
+        )) {
             if (Objects.equals(chatMessage.getCommunicationRequestType(), "REQUEST")){
                 String token = requestAudioVideoToken(chatMessage.getSender(),chatMessage.getReceiver());
                 messagingTemplate.convertAndSend("/user/" + chatMessage.getSender() + "_" + chatMessage.getReceiver() +"/queue/messages",
